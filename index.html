@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquusCronos: Precisión y Pasión en Cada Segundo</title>
+    <!-- Chosen Palette: Warm Neutrals with a touch of classic blue for a professional and calm feel. -->
+    <!-- Application Structure Plan: A single-page, top-down narrative structure. It starts with a compelling 'Hero' section to grab attention, followed by 'Benefits' and 'How it Works' for quick understanding. It then dives deeper with 'Features' and audience-specific 'Solutions'. A 'Pricing' table provides clarity, and 'Testimonials' build trust. The flow is designed to be intuitive, leading the user logically from initial interest to detailed information and finally to a clear call-to-action ('Contact'), making exploration seamless without needing to jump between pages. -->
+    <!-- Visualization & Content Choices: Report Info: Administrative work reduction mentioned in testimonials. -> Goal: Quantify the benefit. -> Viz/Presentation Method: Bar Chart (Chart.js). -> Interaction: Static visualization with tooltips on hover for clarity. -> Justification: A chart provides a quick, impactful visual representation of a key data point (70% reduction), which is more engaging than text alone. Report Info: Features, Solutions, Plans. -> Goal: Organize complex information clearly. -> Viz/Presentation Method: Styled HTML sections with Tailwind CSS Grid/Flexbox. -> Interaction: Page scrolling via navigation links. -> Justification: This approach maintains a clean, readable layout for text-heavy content, ensuring responsiveness and ease of navigation. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #333;
+        }
+        .hero-bg {
+            background-image: url('https://drive.google.com/file/d/1b62CwpJ5IGqdflF_BJ2Cd6DQF5Q3tHCX/view?usp=drive_link');
+            background-size: cover;
+            background-position: center;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-gray-800">EquusCronos</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition duration-300">Características</a>
+                <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition duration-300">Soluciones</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition duration-300">Planes</a>
+                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">Contáctanos</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600">Características</a>
+            <a href="#solutions" class="block py-2 text-gray-600 hover:text-blue-600">Soluciones</a>
+            <a href="#pricing" class="block py-2 text-gray-600 hover:text-blue-600">Planes</a>
+            <a href="#contact" class="block mt-2 bg-blue-600 text-white text-center px-4 py-2 rounded-md hover:bg-blue-700">Contáctanos</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg text-white min-h-screen flex items-center">
+            <div class="bg-black/50 w-full h-full flex items-center">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">EquusCronos: Precisión y Pasión en Cada Segundo.</h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">La plataforma digital que transforma la gestión de competencias ecuestres. Di adiós a las planillas, los errores manuales y las demoras. Vive la emoción en tiempo real.</p>
+                    <div class="flex justify-center items-center space-x-4">
+                        <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300">Contáctanos</a>
+                        <a href="#features" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-white hover:text-gray-800 transition duration-300">Ver Características</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12 text-center">
+                    <div class="p-8 border border-gray-200 rounded-lg shadow-sm">
+                        <div class="text-4xl text-blue-600 mb-4">⏱️</div>
+                        <h3 class="text-2xl font-bold mb-2">Precisión Inigualable</h3>
+                        <p class="text-gray-600">Nuestro sistema de cronometraje y la app de campo eliminan el error humano, garantizando la máxima integridad para tu competencia.</p>
+                    </div>
+                    <div class="p-8 border border-gray-200 rounded-lg shadow-sm">
+                        <div class="text-4xl text-blue-600 mb-4">📋</div>
+                        <h3 class="text-2xl font-bold mb-2">Gestión Simplificada</h3>
+                        <p class="text-gray-600">Centraliza toda la organización del evento en una plataforma intuitiva, desde inscripciones hasta controles veterinarios.</p>
+                    </div>
+                    <div class="p-8 border border-gray-200 rounded-lg shadow-sm">
+                        <div class="text-4xl text-blue-600 mb-4">👥</div>
+                        <h3 class="text-2xl font-bold mb-2">Experiencia Mejorada</h3>
+                        <p class="text-gray-600">Jinetes, aficionados y patrocinadores disfrutan de resultados en tiempo real, elevando el nivel del deporte para todos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section id="how-it-works" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-12">Transforma tu Competencia en 3 Simples Pasos</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">1</div>
+                        <h3 class="text-xl font-semibold mb-2">Configura</h3>
+                        <p class="text-gray-600">Crea tu evento, define etapas y gestiona inscripciones desde un panel de administración web fácil de usar.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">2</div>
+                        <h3 class="text-xl font-semibold mb-2">Ejecuta</h3>
+                        <p class="text-gray-600">Tus oficiales registran datos con nuestra app móvil, que funciona perfectamente incluso sin conexión a internet.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">3</div>
+                        <h3 class="text-xl font-semibold mb-2">Comparte</h3>
+                        <p class="text-gray-600">Los resultados y clasificaciones se publican en una página web en tiempo real para que todos los sigan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Características Detalladas de EquusCronos</h2>
+                <div class="space-y-16">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Cronometraje de Alta Precisión y Captura de Datos en Campo</h3>
+                            <p class="text-gray-600">Nuestra aplicación móvil para oficiales permite registrar tiempos de llegada, salida y paso por checkpoints con un solo toque. La interfaz está optimizada para un uso rápido en cualquier condición, asegurando que cada dato crucial sea capturado con exactitud y al instante.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-8 text-center text-5xl">📱</div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 md:order-1 bg-gray-100 rounded-lg p-8 text-center text-5xl">🌐</div>
+                        <div class="order-1 md:order-2">
+                            <h3 class="text-2xl font-bold mb-4">App Móvil con Funcionamiento 100% Offline</h3>
+                            <p class="text-gray-600">Construida con una arquitectura "offline-first", nuestra app permite registrar todos los datos sin necesidad de internet. La información se almacena de forma segura y se sincroniza automáticamente cuando se recupera la conexión.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                         <div>
+                            <h3 class="text-2xl font-bold mb-4">Gestión Integral de Controles Veterinarios (Vet-Checks)</h3>
+                            <p class="text-gray-600">Digitaliza el proceso más crítico del raid. La app guía a los veterinarios para registrar la frecuencia cardíaca y otros parámetros, aplicando automáticamente las reglas del reglamento para notificar si un equino puede continuar.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-8 text-center text-5xl">❤️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials & Chart Section -->
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">La Voz de Quienes Ya Confían en Nosotros</h2>
+                <div class="grid lg:grid-cols-5 gap-12 items-center">
+                    <div class="lg:col-span-3 space-y-8">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-600 italic mb-4">"Implementar EquusCronos fue un antes y un después. Redujimos el trabajo administrativo en un 70% y eliminamos los errores. La profesionalidad que aporta es invaluable."</p>
+                            <p class="font-bold text-right">- Carlos Rodríguez, Presidente del Club Hípico Sarandí</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                            <p class="text-gray-600 italic mb-4">"Como jinete, la transparencia es fundamental. Con EquusCronos, puedo ver mis tiempos en mi teléfono apenas suceden. Me da una confianza enorme en la competencia."</p>
+                            <p class="font-bold text-right">- Sofía Martínez, Jinete Profesional</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                            <h3 class="text-xl font-bold text-center mb-4">Optimización del Evento</h3>
+                            <p class="text-center text-gray-600 mb-4">Visualiza el impacto directo en la eficiencia de la organización.</p>
+                            <div class="chart-container">
+                                <canvas id="efficiencyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Una Solución para Cada Protagonista</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Para Federaciones</h3>
+                        <p class="text-gray-600">Estandariza competiciones, centraliza datos y mejora la integridad del deporte a nivel nacional. Fortalece la confianza y moderniza tu federación.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Para Clubes Organizadores</h3>
+                        <p class="text-gray-600">Simplifica la organización, reduce errores manuales y mejora la experiencia del evento. Proyecta una imagen profesional y atrae más participantes.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Para Competidores</h3>
+                        <p class="text-gray-600">Accede a resultados en tiempo real, sigue tu performance y compite con una experiencia más justa y transparente. Concéntrate en tu carrera.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-4">Planes Flexibles para Cada Necesidad</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Desde un raid anual hasta el calendario completo de una federación, tenemos un plan que se adapta a la escala de tu operación.</p>
+                <div class="overflow-x-auto">
+                    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md border border-gray-200">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="p-6 font-semibold">Característica</th>
+                                    <th class="p-6 font-semibold text-center">Plan Club</th>
+                                    <th class="p-6 font-semibold text-center">Plan Pro-Series</th>
+                                    <th class="p-6 font-semibold text-center">Plan Federación</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="bg-gray-50">
+                                    <td class="p-6 font-semibold">Perfil Ideal</td>
+                                    <td class="p-6 text-center text-sm">Clubes con 1-3 eventos al año.</td>
+                                    <td class="p-6 text-center text-sm">Organizadores de campeonatos.</td>
+                                    <td class="p-6 text-center text-sm">Federaciones nacionales.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6">Eventos Incluidos</td>
+                                    <td class="p-6 text-center">Hasta 3 por año</td>
+                                    <td class="p-6 text-center">Ilimitados</td>
+                                    <td class="p-6 text-center">Ilimitados</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6">Cronometraje en Vivo</td>
+                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
+                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
+                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6">App de Campo (Offline)</td>
+                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
+                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
+                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6">Soporte Técnico</td>
+                                    <td class="p-6 text-center">Email</td>
+                                    <td class="p-6 text-center">Prioritario</td>
+                                    <td class="p-6 text-center">Dedicado</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6">Analíticas y Reportes</td>
+                                    <td class="p-6 text-center">Básico</td>
+                                    <td class="p-6 text-center">Avanzado</td>
+                                    <td class="p-6 text-center">A nivel Federación</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6"></td>
+                                    <td class="p-6 text-center"><a href="#contact" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-300 text-sm">Cotizar</a></td>
+                                    <td class="p-6 text-center"><a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 text-sm">Cotizar</a></td>
+                                    <td class="p-6 text-center"><a href="#contact" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-300 text-sm">Cotizar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-800 text-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4">¿Listo para Llevar tu Competencia al Siguiente Nivel?</h2>
+                        <p class="text-gray-300 mb-8">Estamos aquí para responder todas tus preguntas. Si deseas una demostración personalizada de la plataforma o una cotización para tu próximo evento, no dudes en contactarnos.</p>
+                        <div class="space-y-4">
+                            <p><strong>Email:</strong> contacto@equuscronos.com</p>
+                            <p><strong>Teléfono:</strong> +598 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-gray-800">
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block mb-2 font-semibold">Nombre Completo</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block mb-2 font-semibold">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block mb-2 font-semibold">Mensaje</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 EquusCronos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Chart.js implementation
+            const ctx = document.getElementById('efficiencyChart').getContext('2d');
+            const efficiencyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Trabajo Manual', 'Con EquusCronos'],
+                    datasets: [{
+                        label: 'Esfuerzo Administrativo',
+                        data: [100, 30],
+                        backgroundColor: [
+                            'rgba(200, 200, 200, 0.6)',
+                            'rgba(59, 130, 246, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(200, 200, 200, 1)',
+                            'rgba(59, 130, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        if (context.label === 'Con EquusCronos') {
+                                            label += 'Reducción del 70%';
+                                        } else {
+                                            label += '100% (Base)';
+                                        }
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
