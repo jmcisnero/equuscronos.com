@@ -3,100 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EquusCronos: Precisión y Pasión en Cada Segundo</title>
-    <!-- Chosen Palette: Warm Neutrals with a touch of classic blue for a professional and calm feel. -->
-    <!-- Application Structure Plan: A single-page, top-down narrative structure. It starts with a compelling 'Hero' section to grab attention, followed by 'Benefits' and 'How it Works' for quick understanding. It then dives deeper with 'Features' and audience-specific 'Solutions'. A 'Pricing' table provides clarity, and 'Testimonials' build trust. The flow is designed to be intuitive, leading the user logically from initial interest to detailed information and finally to a clear call-to-action ('Contact'), making exploration seamless without needing to jump between pages. -->
-    <!-- Visualization & Content Choices: Report Info: Administrative work reduction mentioned in testimonials. -> Goal: Quantify the benefit. -> Viz/Presentation Method: Bar Chart (Chart.js). -> Interaction: Static visualization with tooltips on hover for clarity. -> Justification: A chart provides a quick, impactful visual representation of a key data point (70% reduction), which is more engaging than text alone. Report Info: Features, Solutions, Plans. -> Goal: Organize complex information clearly. -> Viz/Presentation Method: Styled HTML sections with Tailwind CSS Grid/Flexbox. -> Interaction: Page scrolling via navigation links. -> Justification: This approach maintains a clean, readable layout for text-heavy content, ensuring responsiveness and ease of navigation. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T99HXL74');</script>
+    <!-- End Google Tag Manager -->
+
+    <title data-i18n="title">EquusCronos: La Revolución Digital en la Competición Ecuestre</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f7f4;
-            color: #333;
+            background-color: #f7fafc; /* Fondo (Neutro Claro) */
+            color: #1a202c; /* Texto Principal (Neutro Oscuro) */
         }
         .hero-bg {
-            background-image: url('images/EC3.png');
+            background-image: url('images/competencia-ecuestre.jpg');
             background-size: cover;
             background-position: center;
         }
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
             height: 300px;
-            max-height: 400px;
         }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
+        /* Clases personalizadas para los nuevos colores de marca */
+        .brand-green { color: #2a4631; }
+        .brand-gold { color: #c58a41; }
+        .bg-brand-green { background-color: #2a4631; }
+        .bg-brand-gold { background-color: #c58a41; }
+        .hover\:bg-brand-gold-dark:hover { background-color: #b37b39; }
+        .border-brand-gold { border-color: #c58a41; }
+        
+        .tab-button.active {
+            border-color: #c58a41; /* Dorado Acento */
+            background-color: #fef3e8;
+            color: #b37b39; 
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T99HXL74"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-gray-800">EquusCronos</a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#features" class="text-gray-600 hover:text-blue-600 transition duration-300">Características</a>
-                <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition duration-300">Soluciones</a>
-                <!--<a href="#pricing" class="text-gray-600 hover:text-blue-600 transition duration-300">Planes</a>-->
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">Contáctanos</a>
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center">
+                <img src="images/logo.png" alt="EquusCronos Logo" class="h-10 mr-2">
+                <span class="text-2xl font-extrabold brand-green tracking-tight">EquusCronos</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#benefits" class="text-gray-600 hover:brand-gold font-semibold transition duration-300" data-i18n="nav_benefits">Beneficios</a>
+                <a href="#features" class="text-gray-600 hover:brand-gold font-semibold transition duration-300" data-i18n="nav_features">Características</a>
+                <a href="#solutions" class="text-gray-600 hover:brand-gold font-semibold transition duration-300" data-i18n="nav_solutions">Soluciones</a>
+                <!-- Language Selector -->
+                <div class="relative" id="lang-switcher">
+                    <button class="flex items-center text-gray-600 hover:brand-gold font-semibold transition duration-300">
+                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m0 0a9 9 0 019-9m-9 9a9 9 0 009 9"></path></svg>
+                        <span id="current-lang">ES</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-options" class="hidden absolute right-0 mt-2 py-2 w-36 bg-white rounded-lg shadow-xl">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">🇪🇸 Español</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">🇬🇧 English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pt">🇧🇷 Português</a>
+                    </div>
+                </div>
+                <a href="#contact" class="bg-brand-gold text-white px-5 py-2 rounded-lg font-bold hover:bg-brand-gold-dark shadow-sm transition-transform transform hover:scale-105" data-i18n="nav_contact">Contáctanos</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600">Características</a>
-            <a href="#solutions" class="block py-2 text-gray-600 hover:text-blue-600">Soluciones</a>
-            <!--<a href="#pricing" class="block py-2 text-gray-600 hover:text-blue-600">Planes</a>-->
-            <a href="#contact" class="block mt-2 bg-blue-600 text-white text-center px-4 py-2 rounded-md hover:bg-blue-700">Contáctanos</a>
+            <a href="#benefits" class="block py-2 text-gray-600 hover:brand-gold font-semibold" data-i18n="nav_benefits">Beneficios</a>
+            <a href="#features" class="block py-2 text-gray-600 hover:brand-gold font-semibold" data-i18n="nav_features">Características</a>
+            <a href="#solutions" class="block py-2 text-gray-600 hover:brand-gold font-semibold" data-i18n="nav_solutions">Soluciones</a>
+            <a href="#contact" class="block mt-2 bg-brand-gold text-white text-center px-4 py-2 rounded-lg font-bold hover:bg-brand-gold-dark" data-i18n="nav_contact">Contáctanos</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero-bg text-white min-h-screen flex items-center">
-            <div class="bg-black/50 w-full h-full flex items-center">
+            <div class="bg-black/60 w-full h-full flex items-center">
                 <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">EquusCronos: Precisión y Pasión en Cada Segundo.</h1>
-                    <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">La plataforma digital que transforma la gestión de competencias ecuestres. Di adiós a las planillas, los errores manuales y las demoras. Vive la emoción en tiempo real.</p>
-                    <div class="flex justify-center items-center space-x-4">
-                        <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300">Contáctanos</a>
-                        <a href="#features" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-white hover:text-gray-800 transition duration-300">Ver Características</a>
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 tracking-tight" data-i18n="hero_title">Precisión y Pasión en Cada Segundo.</h1>
+                    <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed" data-i18n="hero_subtitle">La plataforma digital que transforma la gestión de competencias ecuestres.<br>Olvídate del papel, los errores manuales y las demoras. Gestiona, cronometra y comparte resultados en vivo.<br>Vive la emoción en tiempo real.</p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="w-full sm:w-auto bg-brand-gold text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-brand-gold-dark shadow-lg transition-transform transform hover:scale-105" data-i18n="hero_cta_contact">Contáctanos</a>
+                        <a href="#features" class="w-full sm:w-auto bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-gray-800 transition duration-300" data-i18n="hero_cta_features">Ver Características</a>
                     </div>
+                    <!-- <p class="mt-6 text-sm text-gray-300" data-i18n="hero_trust">Con la confianza de clubes y federaciones líderes.</p> -->
                 </div>
             </div>
         </section>
 
         <!-- Benefits Section -->
         <section id="benefits" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-12 text-center">
-                    <div class="p-8 border border-gray-200 rounded-lg shadow-sm">
-                        <div class="text-4xl text-blue-600 mb-4">⏱️</div>
-                        <h3 class="text-2xl font-bold mb-2">Precisión Inigualable</h3>
-                        <p class="text-gray-600">Nuestro sistema de cronometraje y la app de campo eliminan el error humano, garantizando la máxima integridad para tu competencia.</p>
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-extrabold mb-3 tracking-tight" data-i18n="benefits_title">La Ventaja Competitiva de la Digitalización</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-12" data-i18n="benefits_subtitle">Moderniza tu evento, garantiza la integridad y ofrece una experiencia inolvidable.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-8 bg-gray-50 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex justify-center items-center mb-4"><svg class="w-12 h-12 brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="benefit1_title">Precisión a Nivel de Campeonato</h3>
+                        <p class="text-gray-600" data-i18n="benefit1_text">Elimina el error humano con cronometraje automatizado y controles veterinarios digitales. Garantiza la máxima integridad y justicia en cada competencia.</p>
                     </div>
-                    <div class="p-8 border border-gray-200 rounded-lg shadow-sm">
-                        <div class="text-4xl text-blue-600 mb-4">📋</div>
-                        <h3 class="text-2xl font-bold mb-2">Gestión Simplificada</h3>
-                        <p class="text-gray-600">Centraliza toda la organización del evento en una plataforma intuitiva, desde inscripciones hasta controles veterinarios.</p>
+                    <div class="p-8 bg-gray-50 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex justify-center items-center mb-4"><svg class="w-12 h-12 brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></div>
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="benefit2_title">Organización Sin Esfuerzo</h3>
+                        <p class="text-gray-600" data-i18n="benefit2_text">Desde la inscripción de jinetes hasta la gestión de checkpoints, centraliza toda la logística del evento en una única plataforma intuitiva y 100% offline.</p>
                     </div>
-                    <div class="p-8 border border-gray-200 rounded-lg shadow-sm">
-                        <div class="text-4xl text-blue-600 mb-4">👥</div>
-                        <h3 class="text-2xl font-bold mb-2">Experiencia Mejorada</h3>
-                        <p class="text-gray-600">Jinetes, aficionados y patrocinadores disfrutan de resultados en tiempo real, elevando el nivel del deporte para todos.</p>
+                    <div class="p-8 bg-gray-50 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex justify-center items-center mb-4"><svg class="w-12 h-12 brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1014.12 11.88l-4.242 4.242z"></path></svg></div>
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="benefit3_title">Vive la Competencia en Tiempo Real</h3>
+                        <p class="text-gray-600" data-i18n="benefit3_text">Ofrece a jinetes, equipos y aficionados una experiencia inmersiva con clasificaciones y resultados actualizados al segundo en cualquier dispositivo.</p>
                     </div>
                 </div>
             </div>
@@ -105,76 +151,103 @@
         <!-- How it Works Section -->
         <section id="how-it-works" class="py-20">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-12">Transforma tu Competencia en 3 Simples Pasos</h2>
-                <div class="grid md:grid-cols-3 gap-12">
-                    <div class="flex flex-col items-center">
-                        <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">1</div>
-                        <h3 class="text-xl font-semibold mb-2">Configura</h3>
-                        <p class="text-gray-600">Crea tu evento, define etapas y gestiona inscripciones desde un panel de administración web fácil de usar.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">2</div>
-                        <h3 class="text-xl font-semibold mb-2">Ejecuta</h3>
-                        <p class="text-gray-600">Tus oficiales registran datos con nuestra app móvil, que funciona perfectamente incluso sin conexión a internet.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">3</div>
-                        <h3 class="text-xl font-semibold mb-2">Comparte</h3>
-                        <p class="text-gray-600">Los resultados y clasificaciones se publican en una página web en tiempo real para que todos los sigan.</p>
+                <h2 class="text-3xl font-extrabold mb-12 tracking-tight" data-i18n="howitworks_title">Tu Evento, Simplificado en Tres Pasos.</h2>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full border-t-2 border-dashed border-gray-300 -translate-y-10"></div>
+                    <div class="grid md:grid-cols-3 gap-12 relative">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="bg-brand-gold text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mb-4 border-4 border-white shadow-lg">1</div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="step1_title">Configura desde la Web</h3>
+                            <p class="text-gray-600" data-i18n="step1_text">Crea tu evento, define etapas y gestiona inscripciones desde nuestro panel de administración web.</p>
+                        </div>
+                        <div class="flex flex-col items-center p-6">
+                            <div class="bg-brand-gold text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mb-4 border-4 border-white shadow-lg">2</div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="step2_title">Captura Datos en Terreno</h3>
+                            <p class="text-gray-600" data-i18n="step2_text">Tus oficiales registran datos con nuestra app móvil, que funciona perfectamente incluso sin conexión a internet.</p>
+                        </div>
+                        <div class="flex flex-col items-center p-6">
+                            <div class="bg-brand-gold text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mb-4 border-4 border-white shadow-lg">3</div>
+                            <h3 class="text-xl font-bold mb-2" data-i18n="step3_title">Publica Resultados al Instante</h3>
+                            <p class="text-gray-600" data-i18n="step3_text">Los resultados y clasificaciones se publican en una página web en tiempo real para que todos los sigan.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Features Section -->
+        <!-- Features Section (Interactive Tabs) -->
         <section id="features" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Características Detalladas de EquusCronos</h2>
-                <div class="space-y-16">
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4">Cronometraje de Alta Precisión y Captura de Datos en Campo</h3>
-                            <p class="text-gray-600">Nuestra aplicación móvil para oficiales permite registrar tiempos de llegada, salida y paso por checkpoints con un solo toque. La interfaz está optimizada para un uso rápido en cualquier condición, asegurando que cada dato crucial sea capturado con exactitud y al instante.</p>
-                        </div>
-                        <div class="bg-gray-100 rounded-lg p-8 text-center text-5xl">📱</div>
+                <h2 class="text-3xl font-extrabold text-center mb-12 tracking-tight" data-i18n="features_title">La Tecnología Detrás de una Competencia Perfecta.</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex flex-col md:flex-row border-b border-gray-200">
+                        <button class="tab-button active w-full md:w-1/3 p-4 font-bold text-lg border-b-2 transition-colors duration-300" data-tab="tab1" data-i18n="feature1_tab">Precisión Total</button>
+                        <button class="tab-button w-full md:w-1/3 p-4 font-bold text-lg border-b-2 text-gray-500 transition-colors duration-300" data-tab="tab2" data-i18n="feature2_tab">100% Offline</button>
+                        <button class="tab-button w-full md:w-1/3 p-4 font-bold text-lg border-b-2 text-gray-500 transition-colors duration-300" data-tab="tab3" data-i18n="feature3_tab">Vet-Checks Digitales</button>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="order-2 md:order-1 bg-gray-100 rounded-lg p-8 text-center text-5xl">🌐</div>
-                        <div class="order-1 md:order-2">
-                            <h3 class="text-2xl font-bold mb-4">App Móvil con Funcionamiento 100% Offline</h3>
-                            <p class="text-gray-600">Construida con una arquitectura "offline-first", nuestra app permite registrar todos los datos sin necesidad de internet. La información se almacena de forma segura y se sincroniza automáticamente cuando se recupera la conexión.</p>
+                    <div id="tab1" class="tab-content py-8 fade-in">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4" data-i18n="feature1_title">Precisión Atómica, Fiabilidad Total.</h3>
+                                <p class="text-gray-600" data-i18n="feature1_text">Nuestra aplicación móvil para oficiales permite registrar tiempos de llegada, salida y paso por checkpoints con un solo toque. La interfaz está optimizada para un uso rápido en cualquier condición, asegurando que cada dato crucial sea capturado con exactitud y al instante.</p>
+                            </div>
+                            <img src="https://placehold.co/500x400/e2e8f0/2a4631?text=UI+Cronometraje" alt="UI de Cronometraje" class="rounded-lg shadow-lg">
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                         <div>
-                            <h3 class="text-2xl font-bold mb-4">Gestión Integral de Controles Veterinarios (Vet-Checks)</h3>
-                            <p class="text-gray-600">Digitaliza el proceso más crítico del raid. La app guía a los veterinarios para registrar la frecuencia cardíaca y otros parámetros, aplicando automáticamente las reglas del reglamento para notificar si un equino puede continuar.</p>
+                    <div id="tab2" class="tab-content hidden py-8 fade-in">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                             <div>
+                                <h3 class="text-2xl font-bold mb-4" data-i18n="feature2_title">Conexión Cero, Productividad Total.</h3>
+                                <p class="text-gray-600" data-i18n="feature2_text">Construida con una arquitectura "offline-first", nuestra app permite registrar todos los datos sin necesidad de internet. La información se almacena de forma segura y se sincroniza automáticamente cuando se recupera la conexión.</p>
+                            </div>
+                            <img src="https://placehold.co/500x400/e2e8f0/2a4631?text=Modo+Offline" alt="Modo Offline" class="rounded-lg shadow-lg">
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-8 text-center text-5xl">❤️</div>
+                    </div>
+                    <div id="tab3" class="tab-content hidden py-8 fade-in">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4" data-i18n="feature3_title">Bienestar Animal y Reglamento, Digitalizados.</h3>
+                                <p class="text-gray-600" data-i18n="feature3_text">Digitaliza el proceso más crítico del raid. La app guía a los veterinarios para registrar la frecuencia cardíaca y otros parámetros, aplicando automáticamente las reglas del reglamento para notificar si un equino puede continuar.</p>
+                            </div>
+                            <img src="https://placehold.co/500x400/e2e8f0/2a4631?text=UI+Vet-Check" alt="UI de Vet-Check" class="rounded-lg shadow-lg">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials & Chart Section 
+        <!-- Testimonials & Chart Section (COMMENTED OUT) -->
+        <!--
         <section id="testimonials" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">La Voz de Quienes Ya Confían en Nosotros</h2>
+                <h2 class="text-3xl font-extrabold text-center mb-12 tracking-tight" data-i18n="testimonials_title">Transformando el Deporte: La Opinión de los Líderes.</h2>
                 <div class="grid lg:grid-cols-5 gap-12 items-center">
                     <div class="lg:col-span-3 space-y-8">
-                        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-600 italic mb-4">"Implementar EquusCronos fue un antes y un después. Redujimos el trabajo administrativo en un 70% y eliminamos los errores. La profesionalidad que aporta es invaluable."</p>
-                            <p class="font-bold text-right">- Carlos Rodríguez, Presidente del Club Hípico Sarandí</p>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                            <p class="text-gray-700 italic text-lg mb-4" data-i18n="testimonial1_text">"Implementar EquusCronos fue un antes y un después. Redujimos el trabajo administrativo en un 70% y eliminamos los errores. La profesionalidad que aporta es invaluable."</p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/50x50/e2e8f0/333?text=CR" class="w-12 h-12 rounded-full mr-4" alt="Carlos Rodriguez">
+                                <div>
+                                    <p class="font-bold text-gray-800" data-i18n="testimonial1_author">- Carlos Rodríguez</p>
+                                    <p class="text-sm text-gray-500" data-i18n="testimonial1_role">Presidente del Club Hípico Sarandí</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                            <p class="text-gray-600 italic mb-4">"Como jinete, la transparencia es fundamental. Con EquusCronos, puedo ver mis tiempos en mi teléfono apenas suceden. Me da una confianza enorme en la competencia."</p>
-                            <p class="font-bold text-right">- Sofía Martínez, Jinete Profesional</p>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                            <p class="text-gray-700 italic text-lg mb-4" data-i18n="testimonial2_text">"Como jinete, la transparencia es fundamental. Con EquusCronos, puedo ver mis tiempos en mi teléfono apenas suceden. Me da una confianza enorme en la competencia."</p>
+                             <div class="flex items-center">
+                                <img src="https://placehold.co/50x50/e2e8f0/333?text=SM" class="w-12 h-12 rounded-full mr-4" alt="Sofia Martinez">
+                                <div>
+                                    <p class="font-bold text-gray-800" data-i18n="testimonial2_author">- Sofía Martínez</p>
+                                    <p class="text-sm text-gray-500" data-i18n="testimonial2_role">Jinete Profesional</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="lg:col-span-2">
-                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                            <h3 class="text-xl font-bold text-center mb-4">Optimización del Evento</h3>
-                            <p class="text-center text-gray-600 mb-4">Visualiza el impacto directo en la eficiencia de la organización.</p>
+                        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                            <h3 class="text-xl font-bold text-center mb-2" data-i18n="chart_title">Impacto Real en la Eficiencia</h3>
+                            <p class="text-center text-gray-600 mb-4" data-i18n="chart_subtitle">Menos papeleo, más deporte.</p>
                             <div class="chart-container">
                                 <canvas id="efficiencyChart"></canvas>
                             </div>
@@ -182,124 +255,102 @@
                     </div>
                 </div>
             </div>
-        </section>-->
-
+        </section>
+        -->
+        
         <!-- Solutions Section -->
         <section id="solutions" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Una Solución para Cada Protagonista</h2>
+                <h2 class="text-3xl font-extrabold text-center mb-12 tracking-tight" data-i18n="solutions_title">Una Solución para Cada Protagonista</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl font-bold mb-4">Para Federaciones</h3>
-                        <p class="text-gray-600">Estandariza competiciones, centraliza datos y mejora la integridad del deporte a nivel nacional. Fortalece la confianza y moderniza tu federación.</p>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4" data-i18n="solution1_title">Para Federaciones</h3>
+                        <p class="text-gray-600" data-i18n="solution1_text">Estandariza competiciones, centraliza datos y mejora la integridad del deporte a nivel nacional. Fortalece la confianza y moderniza tu federación.</p>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl font-bold mb-4">Para Clubes Organizadores</h3>
-                        <p class="text-gray-600">Simplifica la organización, reduce errores manuales y mejora la experiencia del evento. Proyecta una imagen profesional y atrae más participantes.</p>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4" data-i18n="solution2_title">Para Clubes Organizadores</h3>
+                        <p class="text-gray-600" data-i18n="solution2_text">Simplifica la organización, reduce errores manuales y mejora la experiencia del evento. Proyecta una imagen profesional y atrae más participantes.</p>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl font-bold mb-4">Para Competidores</h3>
-                        <p class="text-gray-600">Accede a resultados en tiempo real, sigue tu performance y compite con una experiencia más justa y transparente. Concéntrate en tu carrera.</p>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4" data-i18n="solution3_title">Para Competidores</h3>
+                        <p class="text-gray-600" data-i18n="solution3_text">Accede a resultados en tiempo real, sigue tu performance y compite con una experiencia más justa y transparente. Concéntrate en tu carrera.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section 
+        <!-- Pricing Section (COMMENTED OUT) -->
+        <!--
         <section id="pricing" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-4">Planes Flexibles para Cada Necesidad</h2>
-                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Desde un raid anual hasta el calendario completo de una federación, tenemos un plan que se adapta a la escala de tu operación.</p>
-                <div class="overflow-x-auto">
-                    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md border border-gray-200">
-                        <table class="w-full text-left">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="p-6 font-semibold">Característica</th>
-                                    <th class="p-6 font-semibold text-center">Plan Club</th>
-                                    <th class="p-6 font-semibold text-center">Plan Pro-Series</th>
-                                    <th class="p-6 font-semibold text-center">Plan Federación</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <tr class="bg-gray-50">
-                                    <td class="p-6 font-semibold">Perfil Ideal</td>
-                                    <td class="p-6 text-center text-sm">Clubes con 1-3 eventos al año.</td>
-                                    <td class="p-6 text-center text-sm">Organizadores de campeonatos.</td>
-                                    <td class="p-6 text-center text-sm">Federaciones nacionales.</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-6">Eventos Incluidos</td>
-                                    <td class="p-6 text-center">Hasta 3 por año</td>
-                                    <td class="p-6 text-center">Ilimitados</td>
-                                    <td class="p-6 text-center">Ilimitados</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-6">Cronometraje en Vivo</td>
-                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
-                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
-                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-6">App de Campo (Offline)</td>
-                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
-                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
-                                    <td class="p-6 text-center text-green-500 font-bold">✔️</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-6">Soporte Técnico</td>
-                                    <td class="p-6 text-center">Email</td>
-                                    <td class="p-6 text-center">Prioritario</td>
-                                    <td class="p-6 text-center">Dedicado</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-6">Analíticas y Reportes</td>
-                                    <td class="p-6 text-center">Básico</td>
-                                    <td class="p-6 text-center">Avanzado</td>
-                                    <td class="p-6 text-center">A nivel Federación</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-6"></td>
-                                    <td class="p-6 text-center"><a href="#contact" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-300 text-sm">Cotizar</a></td>
-                                    <td class="p-6 text-center"><a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 text-sm">Cotizar</a></td>
-                                    <td class="p-6 text-center"><a href="#contact" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition duration-300 text-sm">Cotizar</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <h2 class="text-3xl font-extrabold text-center mb-4 tracking-tight" data-i18n="pricing_title">Un Plan para Cada Nivel de Competencia</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12" data-i18n="pricing_subtitle">Transparente, flexible y escalable. Elige el plan que se adapte al tamaño de tu evento o federación.</p>
+                <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="border border-gray-200 rounded-xl p-8 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="plan1_title">Plan Club</h3>
+                        <p class="text-gray-500 mb-6 flex-grow" data-i18n="plan1_desc">Ideal para clubes con 1-3 eventos al año.</p>
+                        <p class="text-4xl font-extrabold mb-6" data-i18n="plan_price">Contactar</p>
+                        <ul class="space-y-4 mb-8 text-gray-600">
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan1_feature1">Cronometraje en Vivo</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan1_feature2">App de Campo (Offline)</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan1_feature3">Hasta 3 eventos/año</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan1_feature4">Soporte por Email</span></li>
+                        </ul>
+                        <a href="#contact" class="mt-auto w-full text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 transition duration-300" data-i18n="plan_cta">Cotizar</a>
+                    </div>
+                    <div class="border-2 border-brand-gold rounded-xl p-8 flex flex-col relative shadow-2xl">
+                        <span class="bg-brand-gold text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full absolute -top-4 right-6" data-i18n="plan2_tag">Más Popular</span>
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="plan2_title">Plan Pro-Series</h3>
+                        <p class="text-gray-500 mb-6 flex-grow" data-i18n="plan2_desc">Para organizadores de campeonatos y múltiples eventos.</p>
+                        <p class="text-4xl font-extrabold mb-6" data-i18n="plan_price">Contactar</p>
+                         <ul class="space-y-4 mb-8 text-gray-600">
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan2_feature1">Todo lo del Plan Club</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan2_feature2">Eventos Ilimitados</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan2_feature3">Soporte Prioritario</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan2_feature4">Analíticas Avanzadas</span></li>
+                        </ul>
+                        <a href="#contact" class="mt-auto w-full text-center bg-brand-gold text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-gold-dark transition duration-300" data-i18n="plan_cta">Cotizar</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-8 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-2" data-i18n="plan3_title">Plan Federación</h3>
+                        <p class="text-gray-500 mb-6 flex-grow" data-i18n="plan3_desc">La solución integral para organismos nacionales.</p>
+                        <p class="text-4xl font-extrabold mb-6" data-i18n="plan_price">Contactar</p>
+                         <ul class="space-y-4 mb-8 text-gray-600">
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan3_feature1">Todo lo del Plan Pro-Series</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan3_feature2">Gestión centralizada de clubes</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan3_feature3">Reportes a nivel Federación</span></li>
+                            <li class="flex items-center"><span class="text-green-500 mr-3">✔</span><span data-i18n="plan3_feature4">Soporte Dedicado</span></li>
+                        </ul>
+                        <a href="#contact" class="mt-auto w-full text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 transition duration-300" data-i18n="plan_cta">Cotizar</a>
                     </div>
                 </div>
             </div>
-        </section>-->
+        </section>
+        -->
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-800 text-white">
+        <section id="contact" class="py-20 bg-brand-green text-white">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-4">¿Listo para Llevar tu Competencia al Siguiente Nivel?</h2>
-                        <p class="text-gray-300 mb-8">Estamos aquí para responder todas tus preguntas. Si deseas una demostración personalizada de la plataforma o una cotización para tu próximo evento, no dudes en contactarnos.</p>
-                        <div class="space-y-4">
-                            <p><strong>Email:</strong> contacto@equuscronos.com</p>
-                            <p><strong>Teléfono:</strong> +598 123 456 789</p>
+                 <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-extrabold mb-4 tracking-tight" data-i18n="contact_title">Lleva tu Competencia al Siguiente Nivel</h2>
+                    <p class="text-gray-300 mb-8" data-i18n="contact_subtitle">Estamos listos para responder tus preguntas. Solicita una demo personalizada o una cotización para tu próximo evento.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl text-gray-800 shadow-2xl">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block mb-2 font-bold" data-i18n="form_name">Nombre Completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold">
                         </div>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg text-gray-800">
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block mb-2 font-semibold">Nombre Completo</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block mb-2 font-semibold">Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="message" class="block mb-2 font-semibold">Mensaje</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300">Enviar Mensaje</button>
-                        </form>
-                    </div>
+                        <div class="mb-4">
+                            <label for="email" class="block mb-2 font-bold" data-i18n="form_email">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block mb-2 font-bold" data-i18n="form_message">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold" data-i18n-placeholder="form_placeholder"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-gold text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-gold-dark transition duration-300" data-i18n="form_submit">Enviar Mensaje</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -308,7 +359,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2025 EquusCronos. Todos los derechos reservados.</p>
+            <p data-i18n="footer_text">&copy; 2025 EquusCronos. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -321,70 +372,91 @@
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // Chart.js implementation
-            const ctx = document.getElementById('efficiencyChart').getContext('2d');
-            const efficiencyChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Trabajo Manual', 'Con EquusCronos'],
-                    datasets: [{
-                        label: 'Esfuerzo Administrativo',
-                        data: [100, 30],
-                        backgroundColor: [
-                            'rgba(200, 200, 200, 0.6)',
-                            'rgba(59, 130, 246, 0.6)'
-                        ],
-                        borderColor: [
-                            'rgba(200, 200, 200, 1)',
-                            'rgba(59, 130, 246, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return value + '%'
-                                }
-                            }
+            // Interactive Tabs for Features section
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        if (content.id === tabId) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
                         }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        if (context.label === 'Con EquusCronos') {
-                                            label += 'Reducción del 70%';
-                                        } else {
-                                            label += '100% (Base)';
-                                        }
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    }
+                    });
+                });
+            });
+
+            // --- INICIO CÓDIGO DE TRADUCCIÓN ---
+            const translations = {
+              "es": { "title": "EquusCronos: La Revolución Digital en la Competición Ecuestre", "nav_benefits": "Beneficios", "nav_features": "Características", "nav_solutions": "Soluciones", "nav_contact": "Contáctanos", "hero_title": "Precisión y Pasión en Cada Segundo.", "hero_subtitle": "La plataforma digital que transforma la gestión de competencias ecuestres.<br>Olvídate del papel, los errores manuales y las demoras. Gestiona, cronometra y comparte resultados en vivo.<br>Vive la emoción en tiempo real.", "hero_cta_contact": "Contáctanos", "hero_cta_features": "Ver Características", "hero_trust": "Con la confianza de clubes y federaciones líderes.", "benefits_title": "La Ventaja Competitiva de la Digitalización", "benefits_subtitle": "Moderniza tu evento, garantiza la integridad y ofrece una experiencia inolvidable.", "benefit1_title": "Precisión a Nivel de Campeonato", "benefit1_text": "Elimina el error humano con cronometraje automatizado y controles veterinarios digitales. Garantiza la máxima integridad y justicia en cada competencia.", "benefit2_title": "Organización Sin Esfuerzo", "benefit2_text": "Desde la inscripción de jinetes hasta la gestión de checkpoints, centraliza toda la logística del evento en una única plataforma intuitiva y 100% offline.", "benefit3_title": "Vive la Competencia en Tiempo Real", "benefit3_text": "Ofrece a jinetes, equipos y aficionados una experiencia inmersiva con clasificaciones y resultados actualizados al segundo en cualquier dispositivo.", "howitworks_title": "Tu Evento, Simplificado en Tres Pasos.", "step1_title": "Configura desde la Web", "step1_text": "Crea tu evento, define etapas y gestiona inscripciones desde nuestro panel de administración web.", "step2_title": "Captura Datos en Terreno", "step2_text": "Tus oficiales registran datos con nuestra app móvil, que funciona perfectamente incluso sin conexión a internet.", "step3_title": "Publica Resultados al Instante", "step3_text": "Los resultados y clasificaciones se publican en una página web en tiempo real para que todos los sigan.", "features_title": "La Tecnología Detrás de una Competencia Perfecta.", "feature1_tab": "Precisión Total", "feature1_title": "Precisión Atómica, Fiabilidad Total.", "feature1_text": "Nuestra aplicación móvil para oficiales permite registrar tiempos de llegada, salida y paso por checkpoints con un solo toque. La interfaz está optimizada para un uso rápido en cualquier condición, asegurando que cada dato crucial sea capturado con exactitud y al instante.", "feature2_tab": "100% Offline", "feature2_title": "Conexión Cero, Productividad Total.", "feature2_text": "Construida con una arquitectura \"offline-first\", nuestra app permite registrar todos los datos sin necesidad de internet. La información se almacena de forma segura y se sincroniza automáticamente cuando se recupera la conexión.", "feature3_tab": "Vet-Checks Digitales", "feature3_title": "Bienestar Animal y Reglamento, Digitalizados.", "feature3_text": "Digitaliza el proceso más crítico del raid. La app guía a los veterinarios para registrar la frecuencia cardíaca y otros parámetros, aplicando automáticamente las reglas del reglamento para notificar si un equino puede continuar.", "solutions_title": "Una Solución para Cada Protagonista", "solution1_title": "Para Federaciones", "solution1_text": "Estandariza competiciones, centraliza datos y mejora la integridad del deporte a nivel nacional. Fortalece la confianza y moderniza tu federación.", "solution2_title": "Para Clubes Organizadores", "solution2_text": "Simplifica la organización, reduce errores manuales y mejora la experiencia del evento. Proyecta una imagen profesional y atrae más participantes.", "solution3_title": "Para Competidores", "solution3_text": "Accede a resultados en tiempo real, sigue tu performance y compite con una experiencia más justa y transparente. Concéntrate en tu carrera.", "contact_title": "Lleva tu Competencia al Siguiente Nivel", "contact_subtitle": "Estamos listos para responder tus preguntas. Solicita una demo personalizada o una cotización para tu próximo evento.", "form_name": "Nombre Completo", "form_email": "Email", "form_message": "Mensaje", "form_placeholder": "Cuéntanos sobre tu club o evento...", "form_submit": "Enviar Mensaje", "footer_text": "© 2025 EquusCronos. Todos los derechos reservados." },
+              "en": { "title": "EquusCronos: The Digital Revolution in Equestrian Competition", "nav_benefits": "Benefits", "nav_features": "Features", "nav_solutions": "Solutions", "nav_contact": "Contact Us", "hero_title": "Precision and Passion in Every Second.", "hero_subtitle": "The digital platform that transforms equestrian competition management.<br>Forget paper, manual errors, and delays. Manage, time, and share live results.<br>Experience the excitement in real time.", "hero_cta_contact": "Contact Us", "hero_cta_features": "View Features", "hero_trust": "Trusted by leading clubs and federations.", "benefits_title": "The Competitive Advantage of Digitization", "benefits_subtitle": "Modernize your event, ensure integrity, and deliver an unforgettable experience.", "benefit1_title": "Championship-Level Precision", "benefit1_text": "Eliminate human error with automated timing and digital vet checks. Ensure maximum integrity and fairness in every competition.", "benefit2_title": "Effortless Organization", "benefit2_text": "From rider registration to checkpoint management, centralize all event logistics on a single, intuitive, and 100% offline platform.", "benefit3_title": "Experience the Competition in Real Time", "benefit3_text": "Offer riders, teams, and fans an immersive experience with live leaderboards and results updated to the second on any device.", "howitworks_title": "Your Event, Simplified in Three Steps.", "step1_title": "Configure from the Web", "step1_text": "Create your event, define stages, and manage registrations from our user-friendly web admin panel.", "step2_title": "Capture Data on the Field", "step2_text": "Your officials record data with our mobile app, which works perfectly even without an internet connection.", "step3_title": "Publish Results Instantly", "step3_text": "Results and rankings are published on a real-time webpage for everyone to follow.", "features_title": "The Technology Behind a Perfect Competition.", "feature1_tab": "Total Precision", "feature1_title": "Atomic Precision, Total Reliability.", "feature1_text": "Our mobile app for officials allows recording arrival, departure, and checkpoint times with a single tap. The interface is optimized for quick use in any condition, ensuring every crucial data point is captured accurately and instantly.", "feature2_tab": "100% Offline", "feature2_title": "Zero Connection, Full Productivity.", "feature2_text": "Built with an \"offline-first\" architecture, our app allows all data to be recorded without needing internet. Information is stored securely and syncs automatically when connection is restored.", "feature3_tab": "Digital Vet-Checks", "feature3_title": "Animal Welfare and Regulations, Digitized.", "feature3_text": "Digitize the most critical process of the ride. The app guides veterinarians to record heart rates and other parameters, automatically applying regulation rules to notify if a horse can continue.", "solutions_title": "A Solution for Every Stakeholder", "solution1_title": "For Federations", "solution1_text": "Standardize competitions, centralize data, and improve the sport's integrity at a national level. Strengthen trust and modernize your federation.", "solution2_title": "For Organizing Clubs", "solution2_text": "Simplify organization, reduce manual errors, and enhance the event experience. Project a professional image and attract more participants.", "solution3_title": "For Competitors", "solution3_text": "Access real-time results, track your performance, and compete with a fairer, more transparent experience. Focus on your race.", "contact_title": "Take Your Competition to the Next Level", "contact_subtitle": "We are ready to answer your questions. Request a personalized demo or a quote for your next event.", "form_name": "Full Name", "form_email": "Email", "form_message": "Message", "form_placeholder": "Tell us about your club or event...", "form_submit": "Send Message", "footer_text": "© 2025 EquusCronos. All rights reserved." },
+              "pt": { "title": "EquusCronos: A Revolução Digital na Competição Equestre", "nav_benefits": "Benefícios", "nav_features": "Características", "nav_solutions": "Soluções", "nav_contact": "Contate-nos", "hero_title": "Precisão e Paixão em Cada Segundo.", "hero_subtitle": "A plataforma digital que transforma a gestão de competições equestres.<br>Esqueça o papel, os erros manuais e as demoras. Gerencie, cronometre e compartilhe resultados ao vivo.<br>Viva a emoção em tempo real.", "hero_cta_contact": "Contate-nos", "hero_cta_features": "Ver Características", "hero_trust": "Com a confiança de clubes e federações líderes.", "benefits_title": "A Vantagem Competitiva da Digitalização", "benefits_subtitle": "Modernize seu evento, garanta a integridade e ofereça uma experiência inesquecível.", "benefit1_title": "Precisão de Nível de Campeonato", "benefit1_text": "Elimine o erro humano com cronometragem automatizada e controles veterinários digitais. Garanta a máxima integridade e justiça em cada competição.", "benefit2_title": "Organização Sem Esforço", "benefit2_text": "Desde a inscrição de cavaleiros até a gestão de checkpoints, centralize toda a logística do evento em uma única plataforma intuitiva e 100% offline.", "benefit3_title": "Viva a Competição em Tempo Real", "benefit3_text": "Ofereça a cavaleiros, equipes e fãs uma experiência imersiva com classificações e resultados atualizados ao segundo em qualquer dispositivo.", "howitworks_title": "Seu Evento, Simplificado em Três Passos.", "step1_title": "Configure pela Web", "step1_text": "Crie seu evento, defina etapas e gerencie inscrições a partir do nosso painel de administração web de fácil utilização.", "step2_title": "Capture Dados no Terreno", "step2_text": "Seus oficiais registram dados com nosso aplicativo móvel, que funciona perfeitamente mesmo sem conexão à internet.", "step3_title": "Publique Resultados Instantaneamente", "step3_text": "Resultados e classificações são publicados em uma página web em tempo real para que todos possam acompanhar.", "features_title": "A Tecnologia por Trás de uma Competição Perfeita.", "feature1_tab": "Precisão Total", "feature1_title": "Precisão Atômica, Confiabilidade Total.", "feature1_text": "Nosso aplicativo móvel para oficiais permite registrar tempos de chegada, partida e passagem por checkpoints com um único toque. A interface é otimizada para uso rápido em qualquer condição, garantindo que cada dado crucial seja capturado com exatidão e instantaneamente.", "feature2_tab": "100% Offline", "feature2_title": "Conexão Zero, Produtividade Total.", "feature2_text": "Construído com uma arquitetura \"offline-first\", nosso aplicativo permite registrar todos os dados sem necessidade de internet. A informação é armazenada de forma segura e sincroniza automaticamente quando a conexão é restabelecida.", "feature3_tab": "Vet-Checks Digitais", "feature3_title": "Bem-estar Animal e Regulamento, Digitalizados.", "feature3_text": "Digitalize o processo mais crítico do raid. O aplicativo guia os veterinários para registrar a frequência cardíaca e outros parâmetros, aplicando automaticamente as regras do regulamento para notificar se um cavalo pode continuar.", "solutions_title": "Uma Solução para Cada Protagonista", "solution1_title": "Para Federações", "solution1_text": "Padronize competições, centralize dados e melhore a integridade do esporte em nível nacional. Fortaleça a confiança e modernize sua federação.", "solution2_title": "Para Clubes Organizadores", "solution2_text": "Simplifique a organização, reduza erros manuais e melhore a experiência do evento. Projete uma imagem profissional e atraia mais participantes.", "solution3_title": "Para Competidores", "solution3_text": "Acesse resultados em tempo real, acompanhe seu desempenho e compita com uma experiência mais justa e transparente. Concentre-se na sua corrida.", "contact_title": "Leve Sua Competição para o Próximo Nível", "contact_subtitle": "Estamos prontos para responder às suas perguntas. Solicite uma demonstração personalizada ou um orçamento para o seu próximo evento.", "form_name": "Nome Completo", "form_email": "Email", "form_message": "Mensagem", "form_placeholder": "Conte-nos sobre seu clube ou evento...", "form_submit": "Enviar Mensagem", "footer_text": "© 2025 EquusCronos. Todos os direitos reservados." }
+            };
+
+            const langSwitcher = document.getElementById('lang-switcher');
+            const langOptions = document.getElementById('lang-options');
+            const currentLangSpan = document.getElementById('current-lang');
+
+            // Toggle dropdown
+            langSwitcher.addEventListener('click', (event) => {
+                event.stopPropagation();
+                langOptions.classList.toggle('hidden');
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', () => {
+                if (!langOptions.classList.contains('hidden')) {
+                    langOptions.classList.add('hidden');
                 }
             });
+
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang;
+                currentLangSpan.textContent = lang.toUpperCase();
+                langOptions.classList.add('hidden');
+                
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+                
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.placeholder = translations[lang][key];
+                    }
+                });
+                document.querySelector('title').innerText = translations[lang].title;
+            };
+
+            langOptions.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    const lang = e.target.getAttribute('data-lang');
+                    setLanguage(lang);
+                }
+            });
+            
+            const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
+            if (translations[userLang]) {
+                setLanguage(userLang);
+            } else {
+                setLanguage('es'); // Default language
+            }
+            // --- FIN CÓDIGO DE TRADUCCIÓN ---
         });
     </script>
 
 </body>
 </html>
-
-
-
 
